@@ -1,3 +1,4 @@
+<!-- 底部选项卡容器 -->
 <template>
   <div id="tab-bar">
     <slot></slot>

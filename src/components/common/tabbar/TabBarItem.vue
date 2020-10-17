@@ -1,3 +1,4 @@
+<!-- 选项卡的选项 -->
 <template>
   <!--所有的item都展示同一个图片, 同一个文字-->
   <div class="tab-bar-item" @click="itemClick">

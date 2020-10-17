@@ -1,3 +1,4 @@
+<!-- 商品分类页 -->
 <template>
   <h2>分类</h2>
 </template>
