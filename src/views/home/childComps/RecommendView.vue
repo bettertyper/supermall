@@ -2,7 +2,7 @@
 <template>
   <div class="recommend">
     <div class="recommend-item" v-for="(item,index) in recommend" :key="index">
-      <a href="item.link">
+      <a :href="item.link">
         <img :src="item.image" alt="">
         <div>{{item.title}}</div>
       </a>
@@ -23,7 +23,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .recommend{
     display: flex;
     padding: 10px 0 20px 0;

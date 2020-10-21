@@ -1,3 +1,4 @@
+<!-- 整个底部选项卡 -->
 <template>
   <tab-bar>
     <tab-bar-item path="/home">

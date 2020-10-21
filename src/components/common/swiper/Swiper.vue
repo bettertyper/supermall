@@ -214,6 +214,7 @@
   #hy-swiper {
     overflow: hidden;
     position: relative;
+    transform: translateZ(0);         /*解决商品列表中文字跟随轮播图抖动问题*/
   }
 
   .swiper {
