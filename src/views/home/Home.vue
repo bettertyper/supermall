@@ -169,7 +169,7 @@
         },
         swiperImageLoad(){                                                //应该在tabControl上面的所有图片加载完成后，再获取offsetTop的值，保证图片位置的高度正确。这里只判断轮播图加载完成，所以有时候会有bug就是RecommentView或FeatureView中的图片此时还没加载出来，所以此时得到的offsetTop还不是正确的
           this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop;        //offsetTop 得到的是tabControl到content顶部的距离，这个距离在滚动过程中是不变的，我们准备拿滚动的坐标和这个值进行比较
-                                                                           // 组件.$el 可以得到组件模板中最外层的DOM
+                                                                           // 组件.$el 可以得到组件模板的根元素
         },
 
         /**

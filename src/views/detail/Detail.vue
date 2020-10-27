@@ -51,7 +51,7 @@
         themeTopYs: [],
         getThemeTopYs: null,
         currentIndex: 0,
-        isShowBackTop: false
+        isShowBackTop: false,
       };
     },
     components: {
@@ -65,7 +65,7 @@
       DetailBottomBar,
       Scroll,
       GoodsList,
-      BackTop
+      BackTop,
     },
     created(){
       this.iid = this.$route.params.iid;            //由于每次从Home点击不同的商品跳转到Detail时，都要根据新的this.iid来请求新的数据，而更新this.iid和请求数据都是在created中的，所以不应该缓存(也可以缓存后在activated中更新this.iid和请求数据，但每次改变的数据太多，不要缓存使用created就行了)
@@ -135,13 +135,15 @@
         this.$refs.scroll.scrollTo(0, 0);
       },
       addToCart(){
-        console.log('haha')
         const product = {}
         product.image = this.topImages[0];
         product.title = this.goods.title;
         product.desc = this.goods.desc;
         product.price = this.goods.realPrice;
         product.iid = this.iid;
+        this.$store.dispatch('addCart', product).then(res => {        //此处使用Promise不是因为有异步操作(这里addCart中都是同步操作，而dispatch、commit本身也是同步的)，而是为了想在addCart中某个操作完成之后告诉外面去执行其他操作，要的是这个里面告诉外面的操作。当然不用Promise直接在这条语句下面写也是先执行dispatch的再执行下面的(因为这里dispatch里是同步)，但是没有告诉外面的操作
+          this.$toast.show(res);
+        });
       }
     }
   };
