@@ -10,12 +10,12 @@ obj.install = function(Vue){
   
 
   //使用new的方式创建组件对象
-  const toast = new toastConstructor();           //created                
-  //将组件对象手动挂载到某一个元素上(即指定el，内部会根据template创建新元素立马替换掉el)
-  toast.$mount(document.createElement('div'));    //mounted
+  const toast = new toastConstructor();                
+  //将组件对象手动挂载到某一个元素上(即指定el，内部会根据将template编译成html即$el，然后替换掉el)
+  toast.$mount(document.createElement('div'));
 
 
-  //将组件模板中的元素插入到body元素尾
+  //将$el插入到body元素尾，即将$el放入document中
   document.body.appendChild(toast.$el);                       
   //在Vue原型上创建一个属性指向该组件对象，就可以在其他组件中直接this.$toast拿到这个组件对象
   Vue.prototype.$toast = toast;                               
